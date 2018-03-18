@@ -1,6 +1,3 @@
-# satellite-icebergs
-Capstone project for the Udacity Machine Learning Nanodegree
-
 ## Status
 Final phases. More code to follow. 
 
