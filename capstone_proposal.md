@@ -23,7 +23,7 @@ Much like the "blips" on ships' radar in the movies, objects in the ocean are re
 
 In our case, we a given the challenge of discriminating between ocean-going ships and icebergs. A [recent article from the European Space Agency](http://www.esa.int/Our_Activities/Observing_the_Earth/Satellites_guide_ships_in_icy_waters_through_the_cloud) shows the benefits from such an implementation; the ability to "navigate through...notoriously icy waters". Our approach will leverage deep learning and convolutional neural networks (CNNs) to help automate the discrimination process. A similar approach applied to the same problem is outlined by [Bentes, Frost, Velotto, and Tings (2016)](http://elib.dlr.de/99079/2/2016_BENTES_Frost_Velotto_Tings_EUSAR_FP.pdf), even being written in Python using the library Theano. However, their radar images were higher resolution, so my solution will differ by inputs given to the model, preprocessing and normalization methods, and a larger CNN architecture. 
 
-This project has a personal connection for me as I worked with imagery data in a previous job and never quite connected with how to interact with it. As a capstone it represents how far I have come since losing that job. 
+This project has a personal connection for me as I worked with imagery data in a previous job and never quite connected with how to interact with it. As a capstone it represents how far I have come since that job's contract expired. 
 
 ### Problem Statement
 
