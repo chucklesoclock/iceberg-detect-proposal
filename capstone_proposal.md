@@ -84,13 +84,13 @@ As a comparison:
 
 Worth noting is that the log loss will change after the competition concludes. According to the [Kaggle leaderboard site](https://www.kaggle.com/c/statoil-iceberg-classifier-challenge/leaderboard), "[The] leaderboard is calculated with approximately 20% of the test data. The final results will be based on the other 80%, so the final standings may be different."
 
-### Evaluation Metrics
+### Evaluation Metric
 
 The official evaluation metric of this Kaggle competition is the logarithmic loss, or "log loss", of our predictions. Also referred to by  "binary cross-entropy" in ML, this is a suitable metric, as it gives a notion of distance from our outputted probabilities to the actual label.
 
 Detailed explanations of log loss are [available online](http://www.exegetic.biz/blog/2015/12/making-sense-logarithmic-loss/), but the formula for log loss is presented here:
 
-![equation](http://latex.codecogs.com/gif.latex?%5Cinline%20%5Cdpi%7B300%7D%20%5Csmall%20-%5Cfrac%7B1%7D%7BN%7D%20%5Csum%5Climits_%7Bi%3D1%7D%5EN%20%7By_i%20%5Clog%20p_i%20&plus;%20%281%20-%20y_i%29%20%5Clog%20%281%20-%20p_i%29%7D)
+&emsp; ![equation](http://latex.codecogs.com/gif.latex?%5Cinline%20%5Cdpi%7B300%7D%20%5Csmall%20-%5Cfrac%7B1%7D%7BN%7D%20%5Csum%5Climits_%7Bi%3D1%7D%5EN%20%7By_i%20%5Clog%20p_i%20&plus;%20%281%20-%20y_i%29%20%5Clog%20%281%20-%20p_i%29%7D)
 
 where __y<sub>i</sub>__ is the label (1 = iceberg, 0 = no iceberg) for image __i__, __p<sub>i</sub>__ is the probability outputted by our model that image __i__ contains an iceberg, and __N__ is the total number of images.
 
@@ -98,7 +98,11 @@ The individual log loss is summed and divided by __-N__ to give a comparable met
 
 For a single image, if our prediction matches the label, a confident prediction probability will contribute little to the total log loss. However, if our prediction does not match, a confident incorrect prediction will contributed heavily to the log loss. We shall endeavor to minimize the log loss; a perfect classifier (that outputs 1.0 for all iceberg images and 0.0 for all non-iceberg images) would have a log loss equal to zero. 
 
-In practice, functions that calculate log loss do not directly compute predictions of exactly 1 or 0. You might notice that a perfectly wrong prediction, such as predicting a definite in image __j__ containing a ship (__y<sub>j</sub>__ = 1) with probability __p<sub>j</sub>_ = 0__ involves the calculation ![equation](http://latex.codecogs.com/gif.latex?%5Cinline%20%5Cdpi%7B300%7D%20%5Csmall%20y_j%20%5Clog%20p_j%20%3D%201%20%5Clog%200%20%3D%20%5Cinf). Since we can't sum infinity meaningfully, the log loss function assigns a minimum and maximum probability that it sets predictions of 0.0 and 1.0 to, respectively.
+In practice, functions that calculate log loss do not directly compute predictions of exactly 1 or 0. You might notice that a perfectly wrong prediction, such as predicting a definite in image __j__ containing a ship (__y<sub>j</sub>__ = 1) with probability __p<sub>j</sub>_ = 0__ involves the calculation
+
+&emsp; ![equation](http://latex.codecogs.com/gif.latex?%5Cdpi%7B150%7D%20y_j%20%5Clog%20p_j%20%3D%201%20%5Clog%200%20%3D%20%5Cinf)
+
+Since we can't sum infinity meaningfully, the log loss function assigns a minimum and maximum probability that it sets predictions of 0.0 and 1.0 to, respectively.
 
 ### Project Design
 
